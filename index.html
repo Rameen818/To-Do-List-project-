@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .hero {
+        min-height: 94vh;
+
+        background-color: rgb(188, 136, 236);
+        display: flex;
+        
+        overflow: hidden;
+        position: relative;
+      }
+      .hed {
+        background-color: rgb(188, 136, 236);
+        display:flex;
+       
+        padding-top: 5px;
+      }
+.hd{
+  padding-left: 50px;
+}
+
+
+      .head {
+        color: rgb(110, 8, 206);
+padding-left: 350px;
+        font-weight: bold;
+        animation: heade 1s infinite;
+      }
+      @keyframes heade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .box1 {
+        height: 45px;
+        width: 50px;
+        border-radius: 100%;
+        background-color: rgb(42, 136, 165);
+        margin-left: 200px;
+        transition: all 1s ease;
+        position: absolute;
+        top: -95px;
+        animation: boxx 2s infinite;
+        box-shadow: 0 4px 3px black;
+      }
+
+      @keyframes boxx {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(600px);
+        }
+      }
+      .box2 {
+        height: 45px;
+        width: 50px;
+        border-radius: 100%;
+        background-color: rgb(228, 15, 15);
+        margin-left: 400px;
+        transition: all 1s ease;
+        position: absolute;
+        top: -95px;
+        animation: boxx 3s infinite;
+box-shadow: 0 4px 3px black;
+      }
+
+      @keyframes boxx {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(600px);
+        }
+      }
+      .box3 {
+        height: 45px;
+        width: 50px;
+        border-radius: 100%;
+        background-color: rgb(37, 2, 235);
+        margin-left: 700px;
+        transition: all 1s ease;
+        position: absolute;
+        top: -95px;
+        animation: boxx 4s infinite;
+        box-shadow: 0 4px 3px black;
+      }
+
+      @keyframes boxx {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(600px);
+        }
+      }
+      .box3A {
+        height: 45px;
+        width: 50px;
+        border-radius: 100%;
+        background-color: rgb(58, 99, 93);
+        margin-left: 500px;
+        transition: all 1s ease;
+        position: absolute;
+        top: -95px;
+        animation: boxx 6s infinite;
+        box-shadow: 0 4px 3px black;
+      }
+
+      @keyframes boxx {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(600px);
+        }
+      }
+      .box4 {
+        height: 45px;
+        width: 50px;
+        border-radius: 100%;
+        background-color: rgb(153, 165, 42);
+        margin-left: 900px;
+        transition: all 1s ease;
+        position: absolute;
+        top: -95px;
+        animation: boxx 5s infinite;
+        box-shadow: 0 4px 3px black;
+      }
+
+      @keyframes boxx {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(600px);
+        }
+      }
+      .box5 {
+        height: 45px;
+        width: 50px;
+        border-radius: 100%;
+        background-color: rgb(231, 116, 9);
+        margin-left: 1100px;
+        transition: all 1s ease;
+        position: absolute;
+        top: -95px;
+        animation: boxx 6s infinite;
+        box-shadow: 0 4px 3px black;
+      }
+
+      @keyframes boxx {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(600px);
+        }
+      }
+      .box6 {
+        height: 45px;
+        width: 50px;
+        border-radius: 100%;
+        background-color: rgb(231, 9, 9);
+        margin-left: 1200px;
+        transition: all 1s ease;
+        position: absolute;
+        top: -95px;
+        animation: boxx 7s infinite;
+        box-shadow: 0 4px 3px black;
+      }
+
+      @keyframes boxx {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(600px);
+        }
+      }
+      .game {
+        position: relative;
+      }
+      .player {
+        height: 60px;
+        width: 100px;
+        /* nichy sy circle bnany ky lia */
+        border-bottom-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+        background-color: rgb(145, 48, 48);
+        transition: all 2s;
+        position: absolute;
+        /* kam hoga to nichy move kry ga*/
+        bottom: 30px;
+        /* for box shadow move up/down visibility */
+        box-shadow: 2px 5px 6px #535050;
+        cursor: pointer;
+       
+      }
+
+      p {
+        color: blanchedalmond;
+         text-align: center;
+      }
+    </style>
+    <div class="hed">
+      <div class="hd">
+        <h1>Score: <span id="score"></span></h1>
+      </div>
+      <div class="head"><h1>DODGE THE BLOCKS</h1></div>
+    </div>
+
+    <div class="hero" onmousemove="move(event)">
+      <!--movement of mouse-->
+      <div class="box1" id="ball"></div>
+      <div class="box2" id="ball"></div>
+      <div class="box3" id="ball"></div>
+      <div class="box3A" id="ball"></div>
+      <div class="box4" id="ball"></div>
+      <div class="box5" id="ball"></div>
+      <div class="box6" id="ball"></div>
+      <div class="game">
+        <div class="player" id="basket">
+          <p>BASKET</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let score = document.getElementById("score");
+      let ball = document.getElementById("ball");
+      let basket = document.getElementById("basket");
+      let run = 0;
+      //for basket's movement
+      function move(e) {
+        //mouse move/position
+        let x = e.clientX;
+        //basket move
+        basket.style.left = x + "px";
+      }
+      basket.addEventListener("mouseenter", function () {
+        run++;
+        score.innerText = run;
+      });
+    </script>
+  </body>
+</html>
