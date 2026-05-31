@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <style>
+    .bg {
+      background: linear-gradient(135deg, #77beb3, #acb6e5);
+      height: 100vh;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    .text {
+      color: rgb(50, 112, 112);
+    }
+    #input {
+      background-color: azure;
+    }
+    #but {
+      background: linear-gradient(135deg, #65b7aa, #929ece);
+    }
+    .li {
+      background: #77beb3;
+    }
+  
+  </style>
+  <body>
+    <section class="bg py-20">
+      <div
+        class="card h-[450px] lg:w-[550px] w-[300px] rounded-xl m-auto overflow-x-hidden"
+      >
+        <p class="text font-bold text-3xl text-center py-5">Todo App</p>
+
+        <input
+          type="text"
+          id="input"
+          placeholder="enter task"
+          class="rounded-lg p-3 mx-6 lg:w-[500px] w-[250px] outline-none hover:border-2 hover:border-blue-300 transition-all"
+        />
+
+        <button
+          id="but"
+          class="p-3 lg:w-[500px] mx-6 rounded-lg mt-3 text-lg w-[250px] text-white active:translate-y-1 transition-all duration-300"
+        >
+          Add Task
+        </button>
+
+        <ul id="list"></ul>
+      </div>
+    </section>
+
+    <script>
+      let input = document.getElementById("input");
+      let add = document.getElementById("but");
+      let list = document.getElementById("list");
+  
+      localStorage.clear();
+      list.innerHTML = localStorage.getItem("data");
+      add.addEventListener("click", function () {
+        if (input.value === "") return; // this show nothing will be  happend so move back
+        let li = document.createElement("li"); //backtick is used for to mix text and variables
+        //this $ sign shows that input.value not a text its a variable
+        li.className =
+          "li flex justify-between p-1 mx-6 mt-3 text-lg lg:w-[500px] items-center rounded-lg ";
+        li.innerHTML = `
+    <span class="task">${input.value}</span> 
+    <div>
+    <button onclick="this.parentElement.parentElement.querySelector('.task').style.textDecoration='line-through'" class="but rounded-lg text-center p-1 bg-green-500 text-white">✓</button>
+    <button onclick="this.parentElement.parentElement.remove()" class="but rounded-lg p-1 bg-red-900 text-center text-white">✕</button>
+    </div>`;
+        localStorage.setItem("data", list.innerHTML);
+        list.appendChild(li);
+        input.value = "";
+        localStorage.setItem("data", list.innerHTML);
+      });
+    </script>
+  </body>
+</html>
